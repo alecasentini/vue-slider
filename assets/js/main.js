@@ -4,6 +4,7 @@ createApp ({
     data() {
         return {
             currentActive: 0,
+            autoscroll: null,
 
             slides : [
                 {
@@ -31,6 +32,10 @@ createApp ({
     
         }
     },
+    
+    created(){
+        this.autoScroll()
+    },
 
     methods: {
         prev(){
@@ -45,6 +50,12 @@ createApp ({
             if( this.currentActive > this.slides.length - 1 ){
               this.currentActive = 0
             }
+          },
+
+          autoScroll(){
+            this.autoscroll = setInterval( ()=>{
+              this.next()
+            }, 3000 )
           },
 
     }
