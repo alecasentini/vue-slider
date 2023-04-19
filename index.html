@@ -31,8 +31,8 @@
     
                 </div>
                 <div class="thumbnails">
-                    <div class="prev btn"><i class="fa-solid fa-angle-up"></i></div>
-                    <div class="next btn"><i class="fa-solid fa-angle-down"></i></div>
+                    <div class="prev btn" @click="prev"><i class="fa-solid fa-angle-up"></i></div>
+                    <div class="next btn" @click="next"><i class="fa-solid fa-angle-down"></i></div>
                         
                     <div class="thumbnail" v-for="(slide, index) in slides" 
                         @click="currentActive = index"
