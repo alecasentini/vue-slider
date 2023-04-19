@@ -18,21 +18,37 @@
     
                     <div class="items">
     
-                        <div class="item" v-for="(slide, index) in slides" :key="index" :class="{'active': currentActive === index}">
-                            <img :src="'./assets/' + slide.image" :alt="slide.title" />
+                        <div class="item" v-for="(slide, index) in slides" 
+                            :key="index" 
+                            :class="{'active': currentActive === index}"
+                            @mouseover="stopScroll" 
+                            @mouseleave="autoScroll"
+                        >
+                            <img :src="'./assets/' + slide.image" 
+                                :alt="slide.title" 
+                            />
+
                             <div class="description">
+
                                 <h4>{{ slide.title }}</h4>
                                 <p>{{ slide.text }}</p>
+
                             </div>
+
                         </div>
-                          
-                        
+      
                     </div> 
     
                 </div>
+
                 <div class="thumbnails">
-                    <div class="prev btn" @click="prev"><i class="fa-solid fa-angle-up"></i></div>
-                    <div class="next btn" @click="next"><i class="fa-solid fa-angle-down"></i></div>
+                    <div class="prev btn" @click="prev">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </div>
+
+                    <div class="next btn" @click="next">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
                         
                     <div class="thumbnail" v-for="(slide, index) in slides" 
                         @click="currentActive = index"
@@ -41,12 +57,11 @@
                         <img  
                             :key="index" 
                             :src="`./assets/${slide.image}`" 
-                            :alt="`immagine thumb n. ${index}`"
-                             
+                            :alt="`immagine thumb n. ${index}`"      
                         />
+
                     </div>
-                      
-                        
+        
             </div>
     
             <!-- <div class="pulsanti">

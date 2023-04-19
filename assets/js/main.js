@@ -32,7 +32,7 @@ createApp ({
     
         }
     },
-    
+
     created(){
         this.autoScroll()
     },
@@ -41,22 +41,27 @@ createApp ({
         prev(){
             this.currentActive--
             if( this.currentActive < 0 ){
-              this.currentActive = this.slides.length - 1
+                this.currentActive = this.slides.length - 1
             } 
-  
-          },
-          next(){
+        },
+
+        next(){
             this.currentActive++
             if( this.currentActive > this.slides.length - 1 ){
-              this.currentActive = 0
+                this.currentActive = 0
             }
-          },
+        },
 
-          autoScroll(){
+        autoScroll(){
             this.autoscroll = setInterval( ()=>{
-              this.next()
+                this.next()
             }, 3000 )
-          },
+        },
+
+        stopScroll(){
+            clearInterval( this.autoscroll )
+            this.autoscroll = null
+        }
 
     }
 }).mount ("#app")
